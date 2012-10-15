@@ -1,7 +1,7 @@
 import os
 
-from lizard_ui.settingshelper import setup_logging
-from lizard_ui.settingshelper import STATICFILES_FINDERS
+#from lizard_ui.settingshelper import setup_logging
+#from lizard_ui.settingshelper import STATICFILES_FINDERS
 
 DEBUG = True
 TEMPLATE_DEBUG = True
@@ -14,7 +14,7 @@ SETTINGS_DIR = os.path.dirname(os.path.realpath(__file__))
 # BUILDOUT_DIR/var/static files to give django-staticfiles a proper place
 # to place all collected static files.
 BUILDOUT_DIR = os.path.abspath(os.path.join(SETTINGS_DIR, '..'))
-LOGGING = setup_logging(BUILDOUT_DIR)
+#LOGGING = setup_logging(BUILDOUT_DIR)
 
 # ENGINE: 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 # In case of geodatabase, prepend with:
@@ -30,7 +30,8 @@ DATABASES = {
     # that as an error.
     'default': {
         'NAME': os.path.join(BUILDOUT_DIR, 'var', 'sqlite', 'test.db'),
-        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        'ENGINE': 'django.db.backends.sqlite3',
+        #'ENGINE': 'django.contrib.gis.db.backends.spatialite',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',  # empty string for localhost.
@@ -41,18 +42,18 @@ SITE_ID = 1
 SECRET_KEY = 'This is not secret but that is ok.'
 INSTALLED_APPS = [
     'lizard_3ditask',
-    'lizard_ui',
-    'staticfiles',
-    'compressor',
-    'south',
+#    'lizard_ui',
+#    'staticfiles',
+#    'compressor',
+#    'south',
     'django_nose',
-    'lizard_security',
+#    'lizard_security',
     'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.gis',
+#    'django.contrib.gis',
     'django.contrib.sites',
     ]
 ROOT_URLCONF = 'lizard_3ditask.urls'
@@ -75,7 +76,7 @@ STATIC_URL = '/static_media/'
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BUILDOUT_DIR, 'var', 'static')
 MEDIA_ROOT = os.path.join(BUILDOUT_DIR, 'var', 'media')
-STATICFILES_FINDERS = STATICFILES_FINDERS
+#STATICFILES_FINDERS = STATICFILES_FINDERS
 
 
 try:
