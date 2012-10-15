@@ -46,7 +46,13 @@ def setup_3di(full_path):
 
 def process_3di_nc(filename):
     """Process result netcdf file"""
-    pass
+
+    from netCDF4 import Dataset
+    rootgrp = Dataset(filename, 'r', format='NETCDF4')
+    print rootgrp.file_format
+    print dir(rootgrp)
+    print rootgrp.dimensions
+    rootgrp.close()
 
 
 def setup_and_run_3di(mdu_full_path, skip_if_results_available=True):
