@@ -13,7 +13,10 @@ install_requires = [
     'django-extensions',
     'django-nose',
     #'lizard-ui >= 4.0b5',
-    #'netcdf4',
+    #'lizard-damage',
+    'lizard-raster',
+    'lizard-worker',
+    'netcdf4',
     #'scipy',
     ],
 

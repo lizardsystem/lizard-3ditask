@@ -1,4 +1,5 @@
 import netCDF4
+import numpy
 
 
 class Data(object):
@@ -47,6 +48,8 @@ class Data(object):
             -self.YS,
         )
 
+        self.num_timesteps, self.num_elements = self.depth.shape
+
     def to_index(self, x0, x1, y0, y1):
         """
         Return tuple of array indexes, ready for indexing master array
@@ -70,14 +73,17 @@ class Data(object):
         return index
 
     def to_masked_array(self, variable, i):
+        """
+        i.e. variable = data.depth, i is the timestep.
+        """
         variable_i = variable[i]
         result = numpy.ma.zeros((self.NY, self.NX), fill_value=-999)
         result.mask = True
         count = 0
         for j in xrange(variable.shape[1]):
             count += 1
-            if count % 10000 == 0:
-                print(count)
+            # if count % 10000 == 0:
+            #     print(count)
             index = self.to_index(
                 self.x0[j],
                 self.x1[j],

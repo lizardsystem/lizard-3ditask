@@ -8,7 +8,7 @@ from __future__ import (
 )
 
 from django.core.management.base import BaseCommand
-from lizard_3ditask.task_pp import post_process_3di
+from lizard_3ditask.task_pp import post_process_detailed_3di
 
 
 class Command(BaseCommand):
@@ -16,9 +16,9 @@ class Command(BaseCommand):
     help = 'Command help'
 
     def handle(self, *args, **options):
-        print("Starting 3Di post processing...")
+        print("Starting 3Di post processing detailed...")
 
 	full_path = "/home/jack/git/sites/flooding/driedi/Vecht/subgrid_map.nc"
-        post_process_3di(full_path)
+        post_process_detailed_3di(full_path)
 
         print("Finished.")

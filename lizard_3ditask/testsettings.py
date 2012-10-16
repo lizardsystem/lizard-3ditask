@@ -36,8 +36,20 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '',  # empty string for localhost.
         'PORT': '',  # empty string for default.
-        }
+        },
+    'raster': {
+        'NAME': 'raster',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'USER': 'buildout',
+        'PASSWORD': 'buildout',
+        'HOST': '10.100.119.153',  # empty string for localhost.
+        'PORT': '',  # empty string for default.
+    },
     }
+
+DATABASE_ROUTERS = ['lizard_raster.routers.LizardRasterRouter']
+
+
 SITE_ID = 1
 SECRET_KEY = 'This is not secret but that is ok.'
 INSTALLED_APPS = [
