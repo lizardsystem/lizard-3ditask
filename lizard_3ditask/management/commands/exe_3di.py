@@ -8,7 +8,7 @@ from __future__ import (
 )
 
 from django.core.management.base import BaseCommand
-from lizard_3ditask.tasks import setup_and_run_3di
+from lizard_3ditask.task_exe import setup_and_run_3di
 
 
 class Command(BaseCommand):

@@ -4,6 +4,7 @@ import os
 import logging
 from shutil import copyfile
 
+
 logger = logging.getLogger(__name__)
 
 subgrid_root = "C:\\3di\\subgrid"
@@ -44,11 +45,6 @@ def setup_3di(full_path):
     # subgrid.ini
 
 
-def process_3di_nc(filename):
-    """Process result netcdf file"""
-    pass
-
-
 def setup_and_run_3di(mdu_full_path, skip_if_results_available=True):
     full_path = os.path.dirname(mdu_full_path)
     result_filename = os.path.join(full_path, 'subgrid_map.nc')
@@ -66,8 +62,8 @@ def setup_and_run_3di(mdu_full_path, skip_if_results_available=True):
         # Results in full_path + subgrid_map.nc
         # *.tim is also produced.
 
-    # process results
-    process_3di_nc(result_filename)
+    # # process results
+    # process_3di_nc(result_filename)
 
 
 def main():
